@@ -6,19 +6,47 @@
 
 }
 
+@font-face {
+  font-family: Inter;
+  src: url("./fonts/interfont.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Agency FB';
+  src: url("./fonts/AGENCYB.TTF") format("truetype");
+  font-display:swap;
+}
+
+.F1 {
+  font-family: 'Agency FB';
+  font-size:5rem;
+}
+
+
+
+.Inter {
+  font-family: 'Inter';
+  font-size:3rem;
+  font-weight: 600;
+}
+
+
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  background-color: var(--bg);
   color: var(--text);
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   line-height: 1.5;
+  scrollbar-width: 0;
+  scrollbar-color: transparent;
+  margin-block: 0;
 }
 
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -27,12 +55,12 @@ html, body {
 }
 
 .map {
-  position: absolute;  /* fill screen */
-  width: 90vw;
-  height: 90vh;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 
   background-image: url('../public/baymap.png');
-  background-size:cover;   /* scale to fill */
+  background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -58,4 +86,29 @@ html, body {
 .time-marker {
 
   
+}
+.trackText {
+  font-family: 'Inter';
+  font-size:3rem;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+:root {
+  --text: rgb(240, 225, 200);
+  --bg: rgb(20,20,18);
+  --primary: rgb(200, 40, 35);
+  --secondary: rgb(190, 160, 110);
+  --tertiary: rgb(25, 40, 70);
+}
+
+.svgWrapper {
+  position: absolute;
+  overflow: visible; /* ensures nothing spills */
+  margin:0;
+  inset:0;
+  width:100%;
+  height:100%;
+  background:rgb(20, 20, 18);
+  color: rgb(252, 248, 240);
 }
