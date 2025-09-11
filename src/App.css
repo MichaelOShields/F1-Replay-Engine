@@ -63,6 +63,7 @@ html, body {
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow:hidden;
 }
 
 
@@ -104,7 +105,7 @@ html, body {
 
 .svgWrapper {
   position: absolute;
-  overflow: visible; /* ensures nothing spills */
+  overflow: hidden;
   margin:0;
   inset:0;
   width:100%;

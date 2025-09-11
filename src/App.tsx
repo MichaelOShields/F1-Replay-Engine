@@ -9,6 +9,7 @@ function App() {
   const [total_time, setTotal] = useState(1);
 
   const fetched = useRef(false);
+  const lapRef = useRef<HTMLDivElement | null>(null);
 
   const [prog, setprog] = useState(0);
   const [x, setx] = useState(0);
@@ -73,6 +74,7 @@ function App() {
         console.log(Math.min(...ys));
         fetched.current = true;
       });
+      
 
   }, []);
   useEffect(() => {
@@ -94,7 +96,12 @@ function App() {
 
 
   useEffect(() => { // advance time
-    if (fetched.current === false) return;
+    if (fetched.current === false) {
+      return;
+    } else {
+      if (!lapRef.current) return;
+      // lapRef.current.style.display = "none";
+    };
 
     const id = setInterval(() => {
       setIndex((prev) => {
@@ -132,7 +139,7 @@ function App() {
 
 
       </div>
-      <LapText />
+      <LapText ref={lapRef}/>
 
       <div className="timeline">
         <div
