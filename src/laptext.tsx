@@ -16,16 +16,16 @@ const LapText = forwardRef<HTMLDivElement, {}>((props, ref) => {
   const [symbols, setSymbols] = useState<SymbolType[]>([]);
   const [count, setCount] = useState(0);
 
-  const path = <path ref={pathRef} d={`${track_route}`} stroke="currentColor" fill="none" />;
-  const text_spacing = 50;
-  const text = "MARINA BAY";
+  const path = <path ref={pathRef} d={`${track_route}`} stroke="var(--text)" fill="none" />;
+  const text_spacing = 40;
+  const text = "YAB ANIRAM";
 
-  useEffect(() => {
+  useEffect(() => { 
     if (!pathRef.current) return;
     const totalLength = pathRef.current.getTotalLength();
     const interval = setInterval(() => {
-      setCount((prev) => (prev + 2) % Math.floor(totalLength));
-    }, 4);
+      setCount((prev) => (prev + 1) % Math.floor(totalLength));
+    }, 16);
     return () => clearInterval(interval);
   }, []);
 
@@ -64,7 +64,7 @@ const LapText = forwardRef<HTMLDivElement, {}>((props, ref) => {
             textAnchor="middle"
             dominantBaseline="middle"
             className="trackText"
-            transform={`rotate(${(sym.angle * 180) / Math.PI}, ${sym.x}, ${sym.y})`}
+            transform={`rotate(${((sym.angle * 180) / Math.PI) + 180}, ${sym.x}, ${sym.y})`}
           >
             {sym.character}
           </text>
